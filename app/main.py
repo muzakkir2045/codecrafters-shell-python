@@ -7,8 +7,10 @@ def main():
         command = input()
         if command == "exit":
             break
-        else:
-            print(f"{command}: command not found ")
+        if command.startswith("echo "):
+            print(command[5:])
+            continue
+        print(f"{command}: command not found ")
     pass
 
 
