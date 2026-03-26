@@ -14,7 +14,6 @@ def main():
             continue
         elif command.startswith("type ") and command[5:] in builtins:
             print(f"{command[5:]} is a shell builtin")
-            continue
         else:
             print(f"{command}: command not found ")
 
