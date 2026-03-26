@@ -2,8 +2,10 @@ import sys
 
 
 def main():
-    # TODO: Uncomment the code below to pass the first stage
-    sys.stdout.write("$ ")
+    
+    command = input("$ ")
+    if command == "xyz":
+        sys.stdout.write(f"{command}: command not found ")
     pass
 
 
