@@ -4,8 +4,8 @@ import sys
 def main():
     sys.stdout.write("$ ")
     command = input()
-    if command == "xyz":
-        sys.stdout.write(f"{command}: command not found ")
+    
+    print(f"{command}: command not found ")
     pass
 
 
