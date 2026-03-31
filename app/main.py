@@ -19,21 +19,12 @@ def main():
                 continue
             else:
                 for dir in search_dirs:
-                    full_path = f"{dir}/{command[5:]}"
-                    if os.path.exists(full_path) and os.access(full_path):
+                    full_path = os.path.join(dir, command[5:])
+                    if os.path.exists(full_path) and os.access(full_path, os.X_OK):
                         print(f"{command[5:]} is {full_path}")
-
-
-                    # if dir.split("/")[-1] == command[5:]:
-                    #     print(f"{command[5:]} is dir")
-                    # print(dir)
-        
-
+    
         else:
             print(f"{command}: command not found ")
-
-
-    
 
 
 if __name__ == "__main__":
