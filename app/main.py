@@ -23,8 +23,10 @@ def main():
                     full_path = f"{dir}/{command[5:]}"
                     if os.path.exists(full_path) and os.access(full_path, os.X_OK):
                         print(f"{command[5:]} is {full_path}")
+                    else:
+
                 
-            # print(f"{command[5:]}: not found ")
+                        print(f"{command[5:]}: not found ")
         else:
             print(f"{command}: command not found ")
 
