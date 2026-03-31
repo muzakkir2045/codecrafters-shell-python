@@ -19,7 +19,7 @@ def main():
                 continue
             else:
                 for dir in search_dirs:
-                    full_path = f"dir/{command[5:]}"
+                    full_path = f"{dir}/{command[5:]}"
                     if os.path.exists(full_path) and os.access(full_path):
                         print(f"{command[5:]} is {full_path}")
 
