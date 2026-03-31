@@ -28,7 +28,7 @@ def main():
                 else:
                     print(f"{command[5:]}: not found")
     
-        else:
+        elif command.split()[0] not in builtins:
             args  = command.split()
             for dir in search_dirs:
                 full_path = os.path.join(dir, args[0])
@@ -38,8 +38,8 @@ def main():
                     break
             else:
                 print(f"{command[5:]}: not found")
-
-            
+        else:
+            print(f"{command}: command not found ")
 
 
 if __name__ == "__main__":
