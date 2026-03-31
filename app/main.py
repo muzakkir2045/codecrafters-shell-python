@@ -3,9 +3,9 @@ import os
 
 def main():
     builtins = ["type","echo","exit"]
-    path_env = os.environ.get("PATH")
-    search_dirs = path_env.split(":")
     while True:
+        path_env = os.environ.get("PATH")
+        search_dirs = path_env.split(":")
         sys.stdout.write("$ ")
         command = input()
         if command == "exit":
@@ -19,9 +19,15 @@ def main():
                 continue
             else:
                 for dir in search_dirs:
-                    if dir.split("/")[-1] == command[5:]:
-                        print(f"{command[5:]} is dir")
-            print(f"{command[5:]}: not found")
+                    full_path = f"dir/{command[5:]}"
+                    if os.path.exists(full_path) and os.access(full_path):
+                        print(f"{command[5:]} is {full_path}")
+
+
+                    # if dir.split("/")[-1] == command[5:]:
+                    #     print(f"{command[5:]} is dir")
+                    # print(dir)
+        
 
         else:
             print(f"{command}: command not found ")
