@@ -21,8 +21,7 @@ def main():
             else:
                 for dir in search_dirs:
                     full_path = os.path.join(dir, command[5:])
-                    if os.path.exists(full_path) and os.access(full_path, os.X_OK):
-                        
+                    if os.path.exists(full_path) and os.access(full_path, os.X_OK):      
                         print(f"{command[5:]} is {full_path}")
                         break
                 else:
@@ -31,13 +30,13 @@ def main():
         elif command.split()[0] not in builtins:
             args  = command.split()
             for dir in search_dirs:
-                full_path = os.path.join(dir, args[0])
+                args[0] = full_path
                 if os.path.exists(full_path) and os.access(full_path, os.X_OK):
                     subprocess.run(args)
 
                     break
             else:
-                print(f"{command[5:]}: not found")
+                print(f"{args[0]}: not found")
         else:
             print(f"{command}: command not found ")
 
