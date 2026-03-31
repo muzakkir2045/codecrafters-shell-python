@@ -18,13 +18,16 @@ def main():
                 print(f"{command[5:]} is a shell builtin")
                 continue
             else:
+                found = False
                 for dir in search_dirs:
                     # full_path = os.path.join(dir, command[5:])
                     full_path = f"{dir}/{command[5:]}"
                     if os.path.exists(full_path) and os.access(full_path, os.X_OK):
+                        found = True
                         print(f"{command[5:]} is {full_path}")
                         break
-            print("Not Found")
+                if not found:
+                    print(f"{command[5:]}: not found")
         else:
             print(f"{command}: command not found ")
 
