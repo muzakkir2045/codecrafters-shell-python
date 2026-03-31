@@ -39,7 +39,7 @@ def main():
             else:
                 print(f"{command[5:]}: not found")
 
-            print(f"{command}: command not found ")
+            
 
 
 if __name__ == "__main__":
