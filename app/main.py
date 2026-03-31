@@ -5,7 +5,7 @@ def main():
     builtins = ["type","echo","exit"]
     while True:
         path_env = os.environ.get("PATH")
-        search_dirs = path_env.split(";")
+        search_dirs = path_env.split(os.pathsep)
         sys.stdout.write("$ ")
         command = input()
         if command == "exit":
