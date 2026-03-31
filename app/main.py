@@ -1,9 +1,10 @@
 import sys
-
+import os
 
 def main():
     builtins = ["type","echo","exit"]
-
+    path_env = os.environ.get("PATH")
+    search_dirs = path_env.split(":")
     while True:
         sys.stdout.write("$ ")
         command = input()
@@ -13,15 +14,20 @@ def main():
             print(command[5:])
             continue
         elif command.startswith("type "):
-            if command[5:] not in builtins:
-                print(f"{command[5:]}: not found")
+            if command[5:] in builtins:
+                print(f"{command[5:]} is a shell builtin")
                 continue
-            print(f"{command[5:]} is a shell builtin")
+            else:
+                for dir in search_dirs:
+                    if dir.split("/")[-1] == command[5:]:
+                        print(f"{command[5:]} is dir")
+            print(f"{command[5:]}: not found")
+
         else:
             print(f"{command}: command not found ")
 
 
-    pass
+    
 
 
 if __name__ == "__main__":
