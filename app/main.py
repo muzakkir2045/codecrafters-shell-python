@@ -24,7 +24,7 @@ def main():
                     if os.path.exists(full_path) and os.access(full_path, os.X_OK):
                         print(f"{command[5:]} is {full_path}")
                         break
-            
+            print("Not Found")
         else:
             print(f"{command}: command not found ")
 
